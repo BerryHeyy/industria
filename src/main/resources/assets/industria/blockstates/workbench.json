@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=south": {"model":  "industria:block/workbench", "y": 180},
+    "facing=north": {"model":  "industria:block/workbench"},
+    "facing=east": {"model":  "industria:block/workbench", "y": 90},
+    "facing=west": {"model":  "industria:block/workbench", "y": 270}
+  }
+}
