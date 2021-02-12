@@ -44,7 +44,6 @@ public class Industria
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onModelRegister);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -82,37 +81,6 @@ public class Industria
     public void onServerStarting(FMLServerStartingEvent event) {
         // do something when the server starts
         LOGGER.info("HELLO from server starting");
-    }
-    
-    public void onModelRegister(ColorHandlerEvent.Item event) {
-    	ItemColors itemColors = event.getItemColors();
-    	
-    	for (MetalEnum metal : MetalEnum.values()) {
-    		IItemColor metalColor = new IItemColor() {
-
-				@Override
-				public int getColor(ItemStack p_getColor_1_, int p_getColor_2_) {
-					return metal.color;
-				}
-    			
-    		};
-    		
-    		itemColors.register(metalColor, ModItems.METAL_GEARS.get(metal.getItemName()).get());
-    		itemColors.register(metalColor, ModItems.METAL_RODS.get(metal.getItemName()).get());
-    		itemColors.register(metalColor, ModItems.METAL_PLATES.get(metal.getItemName()).get());
-    		if (metal != MetalEnum.IRON) itemColors.register(metalColor, ModItems.METAL_INGOTS.get(metal.getItemName()).get());
-    		//itemColors.register(metalColor, ModItems.METAL_COILS.get(metal.getItemName()).get());
-    	}
-    	
-    	event.getItemColors().register(new IItemColor() {
-
-			@Override
-			public int getColor(ItemStack p_getColor_1_, int p_getColor_2_) {
-				// TODO Auto-generated method stub
-				return 0xFF0000;
-			}
-    		
-    	}, ModItems.METAL_INGOTS.get("nickel").get());
     }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD

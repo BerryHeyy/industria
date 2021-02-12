@@ -42,6 +42,10 @@ public class ModItems {
             // Rods
             METAL_RODS.put(metal.getItemName(), RegistrationHandler.ITEMS.register(metal.getItemName("_rod"),
                     () -> new BasicItem(ModItemGroups.INDUSTRIA_MATERIALS_ITEM_GROUP)));
+
+            // Coils
+            METAL_COILS.put(metal.getItemName(), RegistrationHandler.ITEMS.register(metal.getItemName("_coil"),
+                    () -> new BasicItem(ModItemGroups.INDUSTRIA_MATERIALS_ITEM_GROUP)));
         }
     }
 }

@@ -21,26 +21,28 @@ public class ModItemModelProvider extends ItemModelProvider {
         // Metals
         for (MetalEnum metal : MetalEnum.values()) {       
             // Storage Block
-            buildItemBlock(metal.getItemName("_block"), "metal_block");
+            buildItemBlock(metal.getItemName("_block"));
 
             // Gears
-            builder(itemGenerated, metal.getItemName("_block"), "metal_gear");
+            builder(itemGenerated, metal.getItemName("_gear"));
             // Ingots (Except iron)
-            if (metal != MetalEnum.IRON) builder(itemGenerated, metal.getItemName("_block"), "_ingot");
+            if (metal != MetalEnum.IRON) builder(itemGenerated, metal.getItemName("_ingot"));
             // Plates
-            builder(itemGenerated, metal.getItemName("_block"), "metal_plate");
+            builder(itemGenerated, metal.getItemName("_plate"));
             // Rods
-            builder(itemGenerated, metal.getItemName("_block"), "metal_rod");
+            builder(itemGenerated, metal.getItemName("_rod"));
+            // Coils
+            getBuilder(metal.getItemName("_coil")).parent(itemGenerated).texture("layer0", "item/coil_base").texture("layer1", "item/" + metal.getItemName("_coil"));
         }
 
     }
 
-    private ItemModelBuilder builder(ModelFile itemGenerated, String name, String textureName) {
-        return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + textureName);
+    private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
+        return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
     }
 
-    private ItemModelBuilder buildItemBlock(String name, String textureName) {
-        return getBuilder(name).parent(new ModelFile(modLoc("block/" + textureName)) {
+    private ItemModelBuilder buildItemBlock(String name) {
+        return getBuilder(name).parent(new ModelFile(modLoc("block/" + name)) {
             @Override
             protected boolean exists() {
                 return true;

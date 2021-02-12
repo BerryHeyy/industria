@@ -4,8 +4,12 @@ import io.github.berryheyy.industria.Logging;
 import io.github.berryheyy.industria.Reference;
 import io.github.berryheyy.industria.enumm.MetalEnum;
 import io.github.berryheyy.industria.setup.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModBlockStateProvider extends BlockStateProvider {

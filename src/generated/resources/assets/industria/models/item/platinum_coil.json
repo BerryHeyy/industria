@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "industria:item/coil_base",
+    "layer1": "industria:item/platinum_coil"
+  }
+}
